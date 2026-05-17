@@ -1,0 +1,133 @@
+body{
+  margin:0;
+  height:100vh;
+  background: radial-gradient(circle at top, #1a001f, #000);
+  color:white;
+  font-family:Arial;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+}
+
+/* login */
+#loginScreen{
+  text-align:center;
+}
+
+input, button{
+  padding:10px;
+  margin:5px;
+}
+
+/* hidden */
+.hidden{display:none;}
+
+/* kalp */
+.heart{
+  width:120px;
+  height:120px;
+  background:red;
+  transform:rotate(-45deg);
+  position:relative;
+  cursor:pointer;
+  animation:beat 1s infinite;
+  box-shadow:0 0 40px red;
+}
+
+.heart::before,
+.heart::after{
+  content:"";
+  position:absolute;
+  width:120px;
+  height:120px;
+  background:red;
+  border-radius:50%;
+}
+
+.heart::before{top:-60px;left:0;}
+.heart::after{left:60px;top:0;}
+
+@keyframes beat{
+  50%{transform:rotate(-45deg) scale(1.15);}
+}
+
+/* yazı */
+h1{
+  color:#ff2e63;
+  text-shadow:0 0 20px #ff2e63;
+}
+
+/* kediler */
+.cat{
+  position:absolute;
+  top:-50px;
+  font-size:30px;
+  animation:fall 4s linear forwards;
+}
+
+@keyframes fall{
+  to{transform:translateY(110vh);opacity:0;}
+}
+
+/* yıldız */
+.star{
+  position:absolute;
+  width:2px;
+  height:2px;
+  background:white;
+  border-radius:50%;
+  animation:twinkle 2s infinite;
+}
+
+@keyframes twinkle{
+  50%{opacity:1;}
+}
+
+.particle{
+  position:absolute;
+  font-size:20px;
+  pointer-events:none;
+  animation:boom 0.8s ease-out forwards;
+}
+
+@keyframes boom{
+  0%{
+    transform:translate(0,0) scale(1);
+    opacity:1;
+  }
+  100%{
+    transform:translate(var(--x), var(--y)) scale(0.3);
+    opacity:0;
+  }
+}
+
+.shake{
+  animation:shake 0.3s;
+}
+
+@keyframes shake{
+  0%{transform:translate(0,0);}
+  20%{transform:translate(-6px,4px);}
+  40%{transform:translate(6px,-4px);}
+  60%{transform:translate(-4px,6px);}
+  80%{transform:translate(4px,-6px);}
+  100%{transform:translate(0,0);}
+}
+
+/* 💡 flash */
+.flash{
+  position:fixed;
+  inset:0;
+  background:white;
+  opacity:0;
+  pointer-events:none;
+  animation:flash 0.3s;
+}
+
+@keyframes flash{
+  0%{opacity:0;}
+  30%{opacity:0.8;}
+  100%{opacity:0;}
+}
